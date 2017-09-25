@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application:
+      name: microcloud-config-dev
+---
+spring:
+  profiles: default
+  application:
+      name: microcloud-config-default
