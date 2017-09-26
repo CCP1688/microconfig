@@ -1,0 +1,45 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+server:
+  port: 7001
+eureka:
+  instance:
+    hostname: eureka-dev-7001.com  #定义eureka使用的主机名称
+  client:                         #在默认设置下，Eureka服务注册中心
+    service-url:
+          defaultZone: http://microcloud:microcloud@eureka-dev-7001.com:7001/eureka/
+    register-with-eureka: false   #也会将自己作为客户端来尝试注册它自己，
+    fetch-registry: false
+spring:
+  application:
+    name: microcloud-eureka-dev-7001
+security:
+  user:
+    name: microcloud
+    password: microcloud
+
+---
+spring:
+  profiles: beta
+server:
+  port: 7002
+eureka:
+  instance:
+    hostname: eureka-beta-7002.com  #定义eureka使用的主机名称
+  client:                         #在默认设置下，Eureka服务注册中心
+    service-url:
+          defaultZone: http://microcloud:microcloud@eureka-dev-7002.com:7002/eureka/
+    register-with-eureka: false   #也会将自己作为客户端来尝试注册它自己，
+    fetch-registry: false
+spring:
+  application:
+    name: microcloud-eureka-dev-7002
+security:
+  user:
+    name: microcloud
+    password: microcloud
