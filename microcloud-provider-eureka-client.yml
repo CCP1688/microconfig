@@ -3,8 +3,6 @@ spring:
     active:
     - dev
 ---
-spring:
-  profiles: dev
 server:
   port: 7001
 eureka:
@@ -17,15 +15,14 @@ eureka:
     fetch-registry: false
 spring:
   application:
-    name: microcloud-eureka-dev-7001
+    profiles: dev
+    name: microcloud-provider-eureka-client
 security:
   user:
     name: microcloud
     password: microcloud
 
 ---
-spring:
-  profiles: beta
 server:
   port: 7002
 eureka:
@@ -37,8 +34,9 @@ eureka:
     register-with-eureka: false   #也会将自己作为客户端来尝试注册它自己，
     fetch-registry: false
 spring:
+  profiles: beta
   application:
-    name: microcloud-eureka-dev-7002
+    name: microcloud-provider-eureka-client
 security:
   user:
     name: microcloud
